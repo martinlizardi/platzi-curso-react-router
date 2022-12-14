@@ -7,6 +7,7 @@ import { BlogPost } from './components/BlogPost';
 import { LoginPage } from './pages/LoginPage';
 import { LogoutPage } from './pages/LogoutPage';
 import { AuthProvider, AuthRoute } from './services/auth';
+import { BlogProvider } from './services/blog';
 
 function App() {
   return (
@@ -17,7 +18,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/blog" element={<BlogPage />}>
+          <Route
+            path="/blog"
+            element={
+              <BlogProvider>
+                <BlogPage />
+              </BlogProvider>
+            }
+          >
             <Route path=":slug" element={<BlogPost />} />
           </Route>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { blogdata } from '../../data/blogdata';
 import { useAuth } from '../../services/auth';
 import { useUser } from '../../services/user';
+import { useBlog } from '../../services/blog';
 
 function BlogPost() {
   const navigate = useNavigate();
@@ -10,8 +10,9 @@ function BlogPost() {
 
   const auth = useAuth();
   const user = useUser();
+  const { blogs } = useBlog();
 
-  const blogpost = blogdata.find((post) => post.slug === slug);
+  const blogpost = blogs.find((post) => post.slug === slug);
 
   const canDelete = () => {
     return auth.isLogged
