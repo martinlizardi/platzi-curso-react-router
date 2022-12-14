@@ -15,26 +15,6 @@ function Menu() {
             </NavLink>
           </li>
         ))}
-
-        {/* <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/profile'>Profile</Link></li> */}
-
-        {/* <li>
-          <NavLink
-            className={({ isActive }) => ''}
-            style={({ isActive }) => ({ color: isActive ? 'red' : 'blue' })}
-            to="/"
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/blog">Blog</NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile">Profile</NavLink>
-        </li> */}
       </ul>
     </nav>
   );
@@ -52,6 +32,14 @@ const routes = [
   {
     to: '/profile',
     text: 'Profile',
+  },
+  {
+    to: '/login',
+    text: 'Login',
+  },
+  {
+    to: '/logout',
+    text: 'Logout',
   },
 ];
 

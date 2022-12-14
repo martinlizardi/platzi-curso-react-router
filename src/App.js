@@ -4,23 +4,30 @@ import { HomePage } from './pages/HomePage';
 import { BlogPage } from './pages/BlogPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { BlogPost } from './components/BlogPost';
+import { LoginPage } from './pages/LoginPage';
+import { LogoutPage } from './pages/LogoutPage';
+import { AuthProvider } from './services/auth';
 
 function App() {
   return (
     <HashRouter>
-      <Menu />
+      <AuthProvider>
+        <Menu />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route path="/blog" element={<BlogPage />}>
-          <Route path=":slug" element={<BlogPost />} />
-        </Route>
+          <Route path="/blog" element={<BlogPage />}>
+            <Route path=":slug" element={<BlogPost />} />
+          </Route>
 
-        <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/logout" element={<LogoutPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
 
-        <Route path="*" element={<p>Not found</p>} />
-      </Routes>
+          <Route path="*" element={<p>Not found</p>} />
+        </Routes>
+      </AuthProvider>
     </HashRouter>
   );
 }
