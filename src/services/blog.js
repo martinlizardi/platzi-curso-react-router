@@ -16,8 +16,23 @@ const BlogProvider = ({ children }) => {
 
     if (idx >= 0) {
       setBlogs((prevState) => {
-        prevState.splice(idx, 1);
-        return prevState;
+        const blogsTemp = [...prevState];
+        blogsTemp.splice(idx, 1);
+        return blogsTemp;
+      });
+    }
+  };
+
+  const commentBlog = (blogSlug, comment) => {
+    const idx = blogs.findIndex((blog) => blog.slug === blogSlug);
+    if (idx >= 0) {
+      setBlogs((prevState) => {
+        const blogsTemp = [...prevState];
+        const blog = blogsTemp[idx];
+        const newComments = [...blog.comments, comment];
+        blog.comments = newComments;
+        blogsTemp[idx] = blog;
+        return blogsTemp;
       });
     }
   };
@@ -26,6 +41,7 @@ const BlogProvider = ({ children }) => {
     blogs,
     create,
     remove,
+    commentBlog,
   };
 
   return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;

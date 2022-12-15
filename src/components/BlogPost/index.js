@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../services/auth';
 import { useUser } from '../../services/user';
 import { useBlog } from '../../services/blog';
+import { CommentBox } from './CommentBox';
 
 function BlogPost() {
   const navigate = useNavigate();
@@ -38,6 +39,22 @@ function BlogPost() {
       <p>{blogpost.content}</p>
 
       {canDelete() && <button onClick={deleteBlog}>Eliminar blog</button>}
+
+      <p>Comments</p>
+      {blogpost.comments.length > 0 ? (
+        <ul>
+          {blogpost.comments.map((comment, idx) => (
+            <li key={`${comment.author}-${idx}`}>
+              <p style={{ fontWeight: 'bold' }}>{comment.author}</p>
+              <p>{comment.content}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Not comments.</p>
+      )}
+
+      {auth.isLogged && <CommentBox blogSlug={blogpost.slug} />}
     </>
   );
 }
