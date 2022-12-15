@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/platzi-curso-react-router/static/css/main.e6c13ad2.css",
-    "main.js": "/platzi-curso-react-router/static/js/main.b0f23060.js",
+    "main.js": "/platzi-curso-react-router/static/js/main.e8a95075.js",
     "static/js/787.4aa2466c.chunk.js": "/platzi-curso-react-router/static/js/787.4aa2466c.chunk.js",
     "index.html": "/platzi-curso-react-router/index.html",
     "main.e6c13ad2.css.map": "/platzi-curso-react-router/static/css/main.e6c13ad2.css.map",
-    "main.b0f23060.js.map": "/platzi-curso-react-router/static/js/main.b0f23060.js.map",
+    "main.e8a95075.js.map": "/platzi-curso-react-router/static/js/main.e8a95075.js.map",
     "787.4aa2466c.chunk.js.map": "/platzi-curso-react-router/static/js/787.4aa2466c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.b0f23060.js"
+    "static/js/main.e8a95075.js"
   ]
 }
