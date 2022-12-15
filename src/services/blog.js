@@ -37,11 +37,23 @@ const BlogProvider = ({ children }) => {
     }
   };
 
+  const removeComment = (blogSlug, position) => {
+    const idx = blogs.findIndex((blog) => blog.slug === blogSlug);
+    if (idx >= 0) {
+      setBlogs((prevState) => {
+        const blogsTemp = [...prevState];
+        blogsTemp[idx].comments.splice(position, 1);
+        return blogsTemp;
+      });
+    }
+  };
+
   const value = {
     blogs,
     create,
     remove,
     commentBlog,
+    removeComment,
   };
 
   return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;

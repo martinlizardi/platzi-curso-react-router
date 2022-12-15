@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../services/auth';
 import { useUser } from '../../services/user';
 import { useBlog } from '../../services/blog';
+import { Comment } from './Comment';
 import { CommentBox } from './CommentBox';
 
 function BlogPost() {
@@ -44,10 +45,12 @@ function BlogPost() {
       {blogpost.comments.length > 0 ? (
         <ul>
           {blogpost.comments.map((comment, idx) => (
-            <li key={`${comment.author}-${idx}`}>
-              <p style={{ fontWeight: 'bold' }}>{comment.author}</p>
-              <p>{comment.content}</p>
-            </li>
+            <Comment
+              comment={comment}
+              blogSlug={blogpost.slug}
+              position={idx}
+              key={`${comment.author}-${idx}`}
+            />
           ))}
         </ul>
       ) : (
