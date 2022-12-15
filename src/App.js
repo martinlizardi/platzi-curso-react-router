@@ -51,6 +51,14 @@ function App() {
                   </AuthRoute>
                 }
               />
+              <Route
+                path="/profile/:slug"
+                element={
+                  <AuthRoute>
+                    <ProfilePage />
+                  </AuthRoute>
+                }
+              />
 
               <Route path="*" element={<p>Not found</p>} />
             </Routes>
