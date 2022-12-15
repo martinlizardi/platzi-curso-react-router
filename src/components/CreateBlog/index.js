@@ -20,6 +20,7 @@ function CreateBlog() {
       slug,
       content,
       author: username,
+      comments: [],
     });
     returnToBlog();
   };
