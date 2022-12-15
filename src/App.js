@@ -32,7 +32,6 @@ function App() {
                   }
                 />
                 <Route path="create" element={<CreateBlog />} />
-                {/* <Route path="not-found" element={<CreateBlog />} /> */}
               </Route>
 
               <Route path="/login" element={<LoginPage />} />
