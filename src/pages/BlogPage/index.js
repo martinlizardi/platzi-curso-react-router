@@ -16,7 +16,7 @@ function BlogPage() {
         <button onClick={() => navigate('/blog/create')}>Add post</button>
       )}
 
-      {blogs.lenght > 0 ? (
+      {blogs.length > 0 ? (
         <ul>
           {blogs.map((post) => (
             <BlogLink key={post.slug} {...{ post }} />
