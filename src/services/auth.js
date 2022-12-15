@@ -19,9 +19,13 @@ function AuthProvider({ children }) {
     navigate('/');
   };
 
+  const update = (data) => {
+    setUser({ ...user, ...data });
+  };
+
   const isLogged = user !== null;
 
-  const auth = { user, login, logout, isLogged };
+  const auth = { user, login, logout, update, isLogged };
 
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 }

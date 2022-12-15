@@ -9,52 +9,55 @@ import { LoginPage } from './pages/LoginPage';
 import { LogoutPage } from './pages/LogoutPage';
 import { AuthProvider, AuthRoute } from './services/auth';
 import { BlogProvider, BlogRoute } from './services/blog';
+import { UsersDBProvider } from './services/usersDB';
 
 function App() {
   return (
     <HashRouter>
-      <AuthProvider>
-        <Menu />
+      <UsersDBProvider>
+        <AuthProvider>
+          <Menu />
 
-        <BlogProvider>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
+          <BlogProvider>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
 
-            <Route path="/blog" element={<BlogPage />}>
+              <Route path="/blog" element={<BlogPage />}>
+                <Route
+                  path=":slug"
+                  element={
+                    <BlogRoute>
+                      <BlogPost />
+                    </BlogRoute>
+                  }
+                />
+                <Route path="create" element={<CreateBlog />} />
+                {/* <Route path="not-found" element={<CreateBlog />} /> */}
+              </Route>
+
+              <Route path="/login" element={<LoginPage />} />
               <Route
-                path=":slug"
+                path="/logout"
                 element={
-                  <BlogRoute>
-                    <BlogPost />
-                  </BlogRoute>
+                  <AuthRoute>
+                    <LogoutPage />
+                  </AuthRoute>
                 }
               />
-              <Route path="create" element={<CreateBlog />} />
-              {/* <Route path="not-found" element={<CreateBlog />} /> */}
-            </Route>
+              <Route
+                path="/profile"
+                element={
+                  <AuthRoute>
+                    <ProfilePage />
+                  </AuthRoute>
+                }
+              />
 
-            <Route path="/login" element={<LoginPage />} />
-            <Route
-              path="/logout"
-              element={
-                <AuthRoute>
-                  <LogoutPage />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <AuthRoute>
-                  <ProfilePage />
-                </AuthRoute>
-              }
-            />
-
-            <Route path="*" element={<p>Not found</p>} />
-          </Routes>
-        </BlogProvider>
-      </AuthProvider>
+              <Route path="*" element={<p>Not found</p>} />
+            </Routes>
+          </BlogProvider>
+        </AuthProvider>
+      </UsersDBProvider>
     </HashRouter>
   );
 }

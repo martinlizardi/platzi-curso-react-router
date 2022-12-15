@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { users } from '../../data/users';
 import { useAuth } from '../../services/auth';
+import { useUsersDB } from '../../services/usersDB';
 
 function LoginPage() {
   const auth = useAuth();
+  const usersDB = useUsersDB();
   const location = useLocation();
   const [username, setUsername] = React.useState('');
   const [error, setError] = React.useState(false);
@@ -12,7 +13,7 @@ function LoginPage() {
   const login = (e) => {
     e.preventDefault();
 
-    const user = users.find((u) => u.username === username);
+    const user = usersDB.findUser(username);
 
     if (user) {
       auth.login(user);
