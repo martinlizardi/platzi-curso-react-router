@@ -10,7 +10,7 @@ function BlogPost() {
 
   const auth = useAuth();
   const user = useUser();
-  const { blogs } = useBlog();
+  const { blogs, remove: removeBlog } = useBlog();
 
   const blogpost = blogs.find((post) => post.slug === slug);
 
@@ -25,6 +25,11 @@ function BlogPost() {
     // navigate(-1);
   };
 
+  const deleteBlog = () => {
+    removeBlog(blogpost.slug);
+    navigate('/blog');
+  };
+
   return (
     <>
       <h2>{blogpost.title}</h2>
@@ -32,7 +37,7 @@ function BlogPost() {
       <p>{blogpost.author}</p>
       <p>{blogpost.content}</p>
 
-      {canDelete() && <button>Eliminar blog</button>}
+      {canDelete() && <button onClick={deleteBlog}>Eliminar blog</button>}
     </>
   );
 }
