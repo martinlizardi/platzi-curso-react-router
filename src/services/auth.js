@@ -1,15 +1,17 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const AuthContext = React.createContext();
 
 function AuthProvider({ children }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = React.useState(null);
 
   const login = (user) => {
     setUser(user);
-    navigate('/profile');
+    const path = location.state?.from?.pathname || '/profile';
+    return navigate(path, { replace: true });
   };
 
   const logout = () => {

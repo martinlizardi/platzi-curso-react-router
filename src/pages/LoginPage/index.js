@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { users } from '../../data/users';
 import { useAuth } from '../../services/auth';
 
 function LoginPage() {
   const auth = useAuth();
+  const location = useLocation();
   const [username, setUsername] = React.useState('');
   const [error, setError] = React.useState(false);
 
@@ -21,7 +22,8 @@ function LoginPage() {
   };
 
   if (auth.user) {
-    return <Navigate to="/profile" />;
+    const path = location.state?.from?.pathname || '/profile';
+    return <Navigate to={path} replace />;
   }
 
   return (
