@@ -8,7 +8,9 @@ function useUser() {
   const usersDb = useUsersDB();
 
   React.useEffect(() => {
-    usersDb.updateUser(user);
+    if (user) {
+      usersDb.updateUser(user);
+    }
   }, [user]);
 
   return {
