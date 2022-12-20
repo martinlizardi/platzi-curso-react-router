@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useAuth } from '../../services/auth';
-import { useUser } from '../../services/user';
-import { useBlog } from '../../services/blog';
+import { useAuth } from 'services/auth';
+import { useUser } from 'services/user';
+import { useBlog } from 'services/blog';
 import { Comment } from './Comment';
 import { CommentBox } from './CommentBox';
 

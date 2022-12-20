@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../services/auth';
+import { useAuth } from 'services/auth';
 
 function Menu() {
   const auth = useAuth();

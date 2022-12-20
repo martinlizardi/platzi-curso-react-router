@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useUser } from '../../services/user';
-import { useUsersDB } from '../../services/usersDB';
+import { useUser } from 'services/user';
+import { useUsersDB } from 'services/usersDB';
 import { EditData } from './EditData';
 import { ProfileData } from './ProfileData';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../services/auth';
-import { useBlog } from '../../services/blog';
+import { useAuth } from 'services/auth';
+import { useBlog } from 'services/blog';
 
 function BlogPage() {
   const navigate = useNavigate();

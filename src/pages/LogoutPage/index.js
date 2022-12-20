@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../../services/auth';
+import { useAuth } from 'services/auth';
 
 function LogoutPage() {
   const auth = useAuth();

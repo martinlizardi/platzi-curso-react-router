@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../services/user';
-import { useBlog } from '../../services/blog';
+import { useUser } from 'services/user';
+import { useBlog } from 'services/blog';
 
 function CreateBlog() {
   const navigate = useNavigate();

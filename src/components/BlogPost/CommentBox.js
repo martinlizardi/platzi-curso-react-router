@@ -1,6 +1,6 @@
 import React from 'react';
-import { useBlog } from '../../services/blog';
-import { useUser } from '../../services/user';
+import { useBlog } from 'services/blog';
+import { useUser } from 'services/user';
 
 const CommentBox = ({ blogSlug }) => {
   const { commentBlog } = useBlog();

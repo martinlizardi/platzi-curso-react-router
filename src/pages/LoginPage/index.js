@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../services/auth';
-import { useUsersDB } from '../../services/usersDB';
+import { useAuth } from 'services/auth';
+import { useUsersDB } from 'services/usersDB';
 
 function LoginPage() {
   const auth = useAuth();
